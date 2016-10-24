@@ -1,0 +1,2 @@
+ThreeBandIntent get value for {ColorA} {ColorB} {Multiplier}
+ThreeBandIntent get value for {ColorA} {ColorB} {Multiplier} {Tolerance}
