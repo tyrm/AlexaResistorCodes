@@ -1,0 +1,34 @@
+{
+  "intents": [
+    {
+      "intent": "ThreeBandIntent",
+      "slots": [
+        {
+          "name": "ColorA",
+          "type": "LIST_OF_COLORS"
+        },
+        {
+          "name": "ColorB",
+          "type": "LIST_OF_COLORS"
+        },
+        {
+          "name": "Multiplier",
+          "type": "LIST_OF_MULTIPLIERS"
+        },
+        {
+          "name": "Tolerance",
+          "type": "LIST_OF_TOLERANCES"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
