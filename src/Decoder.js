@@ -92,5 +92,47 @@ module.exports = function () {
     }
   };
 
+  DecoderController.DecodeThreeBand = function (colorA, colorB, multiplier, tolerance, done) {
+    var value = 0;
+
+    DecoderController._getColorValue(colorA, function(err, res){
+      if (err) {
+        done(err);
+      }
+      else {
+        value = res * 10;
+        DecoderController._getColorValue(colorB, function(err, res){
+          if (err) {
+            done(err);
+          }
+          else {
+            value = value + res;
+            DecoderController._getMultiplierValue(multiplier, function(err, res){
+              if (err) {
+                done(err);
+              }
+              else {
+                value = value * res;
+                if (tolerance) {
+                  DecoderController._getToleranceValue(tolerance, function(err, res){
+                    if (err) {
+                      done(err);
+                    }
+                    else {
+                      done(null, value, res);
+                    }
+                  })
+                }
+                else {
+                  done(null, value);
+                }
+              }
+            })
+          }
+        })
+      }
+    })
+  }
+
   return DecoderController;
 };
